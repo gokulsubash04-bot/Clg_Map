@@ -1,0 +1,121 @@
+# 🏫 SJCET Interactive 2D & 3D Campus Navigator
+
+An interactive, multi-dimensional campus map and 3D indoor building navigation application built for **St. Joseph's College of Engineering and Technology (SJCET)**, Palai. 
+
+Combines high-precision 2D outdoor GIS mapping with immersive **Three.js WebGL 3D architectural models**, floor-by-floor inspection, indoor Dijkstra pathfinding, and live real-time GPS tracking.
+
+---
+
+## 🌟 Key Features
+
+### 🏢 1. 3D Architectural Building Viewer
+- **Campus 3D Overview**: Renders a full 3D digital twin of the SJCET campus featuring **St. Peter's Block (SPB)** and **St. John Paul Block (SJPB)** side-by-side.
+- **Architectural Facades & Shells**: Procedurally generated building exteriors with realistic windows, structural pillars, entrance canopies, and roofs.
+- **3 Camera View Presets**:
+  - 📐 **3D Isometric View**: Perspective angle optimized for depth and multi-floor visibility.
+  - 🔝 **2D Floorplan Top-Down**: Flat orthogonal view for room layout inspection.
+  - 🏢 **Front Elevation View**: Direct architectural front elevation perspective.
+- **Floor-by-Floor Layer Cutaway**: Isolate and view specific floors (Ground Floor, 1st Floor, 2nd Floor, 3rd Floor, 4th Floor, Roof) or view all floors stacked.
+
+### 🧭 2. Indoor Dijkstra Shortest Path Navigation (SPB Focus)
+- **Room-to-Room Pathfinding**: Finds the shortest path between any two locations across different floors.
+- **Stairwell & Multi-Level Routing**: Calculates stair flight transitions between floors with multi-color 3D path line visualization.
+- **Interactive Room Directory**: Searchable directory for classrooms, laboratories, department heads (HODs), faculty rooms, and restrooms.
+
+### 📍 3. Real-Time GPS Tracking & Auto Building Switch
+- **Live Geolocation Tracking**: Leverages device GPS with Kalman filter smoothing and Haversine distance calculations.
+- **Auto Building Focus**: Automatically centers and highlights the 3D building model corresponding to your real-world coordinates on campus.
+
+### 📱 4. iPhone 16 & Mobile Responsive Design
+- **Safe Area Insets**: Dynamic spacing for iOS notches and home indicator bars (`viewport-fit=cover`).
+- **Glassmorphism HUD Header Bar**: Top status header with live indicator dots and context-aware action buttons.
+- **Mobile Bottom Sheet Drawer**: Swipeable drawer for route planning and room search on mobile devices.
+
+### 🏠 5. Seamless Dynamic Navigation Bar
+- Single context-aware button in top navigation bar:
+  - **2D Map Mode (Home)**: Displays `🏢 3D Building View` action button.
+  - **3D Model Mode**: Blends `🏠 Home` action button natively inside the top 3D HUD header bar.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Core Framework**: React 19 + Vite
+- **3D Graphics Engine**: Three.js (WebGL rendering, OrbitControls, CanvasTexture Sprites)
+- **2D Mapping Engine**: Leaflet + React-Leaflet + OpenStreetMap tiles
+- **Styling**: Vanilla CSS with HSL variables, glassmorphism backdrop filters, and custom theme palettes (Midnight Cyan & Crimson Velvet)
+- **Icons & Typography**: Google Fonts (`Outfit`, `Plus Jakarta Sans`)
+
+---
+
+## 📁 Project Architecture & Structure
+
+```
+sjcet_college_map_version_1/
+├── public/                     # Static assets & map markers
+├── src/
+│   ├── components/
+│   │   ├── MapView.jsx         # 2D Leaflet map view & outdoor route manager
+│   │   └── 3d/
+│   │       ├── BuildingModel3D.jsx    # 3D Three.js WebGL canvas engine & HUD
+│   │       ├── BuildingModel3D.css    # 3D UI themes, panels & mobile drawer styles
+│   │       ├── BlenderBuildingModel.js# Procedural facade shells & structural geometry
+│   │       └── nodesData.js           # 3D room nodes, adjacency matrix & Dijkstra algorithm
+│   ├── hooks/
+│   │   └── useGPS.js           # High-precision geolocation hook with Kalman smoothing
+│   ├── lib/
+│   │   └── geo.js              # Geographic utility functions (Haversine meters calculation)
+│   ├── App.jsx                 # App state controller (2D Home vs 3D Model routing)
+│   ├── App.css                 # Global styles, navbar & container layout
+│   └── main.jsx                # Application entry point
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18.0.0 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository and navigate into the project directory:
+   ```bash
+   cd sjcet_college_map_version_1
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the local development server:
+   ```bash
+   npm run dev
+   ```
+   Open your browser at `http://localhost:5174/`.
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 🎮 3D Viewport Controls
+
+| Action | Mouse | Touch (Mobile) |
+| :--- | :--- | :--- |
+| **Rotate Camera** | Left Click + Drag | 1-Finger Drag |
+| **Pan Camera** | Right Click + Drag | 2-Finger Drag |
+| **Zoom In / Out** | Scroll Wheel | Pinch In / Out |
+| **Select Room** | Click 3D Room | Tap 3D Room |
+
+---
+
+## 📄 License
+
+Developed for **St. Joseph's College of Engineering and Technology (SJCET)**.

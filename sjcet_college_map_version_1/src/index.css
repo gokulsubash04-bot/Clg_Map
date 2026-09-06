@@ -1,0 +1,15 @@
+.map-label div {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #000;
+  white-space: nowrap;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.leaflet-container {
+  background: #eaeaea;
+}
+
