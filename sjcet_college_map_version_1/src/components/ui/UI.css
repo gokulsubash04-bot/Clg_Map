@@ -1,0 +1,302 @@
+/* Full Screen App Shell Layout */
+.app-shell {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-app);
+}
+
+/* Main Content Area (100% Full Width) */
+.app-main-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Header Component - Sleek 60px height for slim top bar */
+.app-header {
+  height: 60px;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 900;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+.header-title-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Header Tab Switcher (Sleek pill tabs) */
+.header-tab-switcher {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-color);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  gap: 4px;
+}
+
+.tab-switch-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.tab-switch-btn:hover {
+  color: var(--navy-900);
+}
+
+.tab-switch-btn.active {
+  background-color: var(--navy-900);
+  color: white;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* GPS Status Chip */
+.gps-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.gps-status-chip.good {
+  background-color: var(--status-success-bg);
+  color: var(--status-success-fg);
+  border: 1px solid var(--status-success-border);
+}
+
+.gps-status-chip.weak, .gps-status-chip.locating {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning-fg);
+  border: 1px solid var(--status-warning-border);
+}
+
+.gps-status-chip.denied {
+  background-color: var(--status-error-bg);
+  color: var(--status-error-fg);
+  border: 1px solid var(--status-error-border);
+}
+
+.gps-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.good .gps-dot { background-color: var(--status-success-fg); }
+.weak .gps-dot, .locating .gps-dot { background-color: var(--status-warning-fg); }
+.denied .gps-dot { background-color: var(--status-error-fg); }
+
+/* View Viewport */
+.view-viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - 60px);
+  width: 100%;
+}
+
+/* Home Overlay Wrapper */
+.home-map-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* LEFT SIDE FLOATING MAP CONTROLS */
+.left-map-controls {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 800;
+}
+
+.left-controls-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  padding: 5px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.left-layer-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-800);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.left-layer-btn:hover {
+  background: var(--bg-surface-subtle);
+  color: var(--navy-900);
+}
+
+.left-layer-btn.active {
+  background: var(--navy-900);
+  color: white;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
+}
+
+/* RIGHT SIDE WELCOME CARD */
+.home-overlay-card.right-side-card {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 800;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-floating);
+  animation: fadeInRight 200ms ease-out;
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.welcome-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.welcome-text {
+  color: var(--text-secondary);
+}
+
+.card-close-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.card-close-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--navy-900);
+}
+
+.reopen-panel-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-800);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+}
+
+.reopen-panel-btn:hover {
+  background: var(--blue-50);
+  border-color: var(--blue-100);
+  color: var(--blue-600);
+}
+
+/* Common Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: var(--navy-900);
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background-color: var(--navy-800);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 12px;
+    height: 56px;
+  }
+
+  .view-viewport {
+    height: calc(100vh - 56px);
+  }
+
+  .tab-switch-btn span {
+    display: none;
+  }
+
+  .left-map-controls {
+    top: auto;
+    bottom: 16px;
+    left: 12px;
+  }
+
+  .home-overlay-card.right-side-card {
+    top: auto;
+    bottom: 80px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+}

@@ -1,0 +1,129 @@
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.view-content-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ================= Dedicated Floating Top Navigation Bar ================= */
+.main-app-nav-bar {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20000;
+  pointer-events: auto;
+  max-width: 95vw;
+}
+
+.single-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.2);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  user-select: none;
+}
+
+.single-toggle-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.35);
+  background: rgba(15, 23, 42, 0.98);
+}
+
+.single-toggle-btn.switch-to-3d {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 132, 199, 0.9) 100%);
+}
+
+.single-toggle-btn.switch-to-home {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(13, 148, 136, 0.9) 100%);
+}
+
+.btn-icon {
+  font-size: 15px;
+}
+
+/* ================= iPhone 16 & Mobile Responsive Styles ================= */
+@media (max-width: 768px) {
+  .main-app-nav-bar {
+    top: calc(10px + env(safe-area-inset-top, 0px));
+    max-width: 94vw;
+  }
+
+  .nav-pill-group {
+    padding: 4px;
+    gap: 3px;
+  }
+
+  .nav-tab-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .tab-icon {
+    font-size: 14px;
+  }
+
+  .spb-3d-banner {
+    top: calc(64px + env(safe-area-inset-top, 0px));
+    width: calc(100vw - 24px);
+    padding: 8px 12px;
+  }
+
+  .spb-3d-banner .spb-text strong {
+    font-size: 12px;
+  }
+
+  .spb-3d-banner .spb-text span {
+    font-size: 10px;
+  }
+
+  .spb-3d-banner .spb-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 430px) {
+  .main-app-nav-bar {
+    top: calc(8px + env(safe-area-inset-top, 0px));
+    max-width: 96vw;
+  }
+
+  .nav-tab-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+
+

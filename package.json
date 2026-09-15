@@ -1,0 +1,20 @@
+{
+  "name": "campus-map-root",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "sjcet_college_map_version_1"
+  ],
+  "scripts": {
+    "dev": "npm --prefix sjcet_college_map_version_1 run dev",
+    "build": "npm --prefix sjcet_college_map_version_1 run build",
+    "preview": "npm --prefix sjcet_college_map_version_1 run preview",
+    "test": "npm --prefix sjcet_college_map_version_1 run test",
+    "lint": "npm --prefix sjcet_college_map_version_1 run lint"
+  },
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
+}
