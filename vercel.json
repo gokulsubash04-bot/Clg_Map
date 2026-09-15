@@ -1,6 +1,6 @@
 {
   "framework": "vite",
-  "buildCommand": "npm --prefix sjcet_college_map_version_1 run build",
+  "buildCommand": "vite build sjcet_college_map_version_1 --outDir sjcet_college_map_version_1/dist",
   "outputDirectory": "sjcet_college_map_version_1/dist",
   "installCommand": "npm install --include=dev"
 }

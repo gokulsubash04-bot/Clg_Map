@@ -7,9 +7,9 @@
     "sjcet_college_map_version_1"
   ],
   "scripts": {
-    "dev": "npm --prefix sjcet_college_map_version_1 run dev",
-    "build": "npm --prefix sjcet_college_map_version_1 run build",
-    "preview": "npm --prefix sjcet_college_map_version_1 run preview",
+    "dev": "vite sjcet_college_map_version_1",
+    "build": "vite build sjcet_college_map_version_1 --outDir sjcet_college_map_version_1/dist",
+    "preview": "vite preview sjcet_college_map_version_1",
     "test": "npm --prefix sjcet_college_map_version_1 run test",
     "lint": "npm --prefix sjcet_college_map_version_1 run lint"
   },
